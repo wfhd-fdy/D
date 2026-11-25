@@ -1,1 +1,60 @@
+/* تنسيق عام للصفحة خلفية مريحة للعيد */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #e0eafc, #cfdef3);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+}
+
+/* تنسيق بطاقة المحتوى في المنتصف */
+.card {
+    background-color: white;
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    text-align: center;
+    max-width: 400px;
+    width: 90%;
+}
+
+h1 { 
+    color: #2c3e50; 
+    margin-bottom: 15px;
+    font-size: 24px;
+    transition: color 0.4s ease, transform 0.2s ease;
+}
+
+p { 
+    color: #7f8c8d; 
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+/* تنسيق الزر وتأثيرات المرور عليه */
+button {
+    background-color: #3498db;
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 8px;
+    margin-top: 20px;
+    box-shadow: 0 4px 6px rgba(52, 152, 219, 0.2);
+    transition: all 0.3s ease;
+}
+
+button:hover {
+    background-color: #2980b9;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(41, 128, 185, 0.3);
+}
+
+button:active {
+    transform: translateY(0);
+}
 
