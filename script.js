@@ -1,11 +1,10 @@
 (() => {
   const searchForm = document.getElementById("search-form");
   const searchInput = document.getElementById("search-input");
-  const scene = document.getElementById("drive-scene");
   const car = document.querySelector(".scene-car");
   const carState = document.getElementById("car-state");
   const carSearch = document.getElementById("car-search");
-  const submitButton = searchForm.querySelector(".search-submit");
+  const socialCards = Array.from(document.querySelectorAll(".social-grid .social-card"));
   const toast = document.getElementById("toast");
   let toastTimer;
 
@@ -27,34 +26,40 @@
     searchInput.focus({ preventScroll: true });
   });
 
+  function filterSocialCards(query) {
+    const normalized = query.trim().toLocaleLowerCase("ar");
+    let visibleCount = 0;
+
+    socialCards.forEach((card) => {
+      const terms = (card.dataset.search || "").toLocaleLowerCase("ar");
+      const matches = !normalized || terms.includes(normalized);
+      card.hidden = !matches;
+      if (matches) visibleCount += 1;
+    });
+
+    return visibleCount;
+  }
+
+  searchInput.addEventListener("input", () => {
+    filterSocialCards(searchInput.value);
+  });
+
   searchForm.addEventListener("submit", (event) => {
     event.preventDefault();
     const query = searchInput.value.trim();
 
     if (!query) {
       searchInput.focus();
-      showToast("اكتب كلمة للبحث أو عنوان موقع أولاً.");
+      showToast("اكتب اسم منصة للبحث محلياً.");
       return;
     }
 
-    let destination;
-    try {
-      const candidate = /^https?:\/\//i.test(query) ? query : `https://${query}`;
-      const url = new URL(candidate);
-      destination = ["http:", "https:"].includes(url.protocol) && url.hostname.includes(".")
-        ? url.href
-        : null;
-    } catch {
-      destination = null;
+    const resultCount = filterSocialCards(query);
+    if (!resultCount) {
+      showToast("لا توجد منصة مطابقة. لم يتم إرسال البحث إلى الإنترنت.");
+      return;
     }
 
-    if (!destination) {
-      destination = `https://search.brave.com/search?q=${encodeURIComponent(query)}`;
-    }
-
-    scene.classList.add("is-driving");
-    searchForm.classList.add("is-searching");
-    submitButton.disabled = true;
-    window.setTimeout(() => window.location.assign(destination), 850);
+    showToast(resultCount === 1 ? "تم العثور على منصة مطابقة." : `تم العثور على ${resultCount} منصات.`);
   });
 })();

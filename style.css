@@ -324,6 +324,7 @@ button, a { -webkit-tap-highlight-color: transparent; }
 .identity-arrow { width: 11px; height: 11px; flex: 0 0 auto; color: #9c40ff; }
 .social-grid { display: grid; grid-template-columns: repeat(4, 44px); gap: 7px; padding: 8px; border-radius: 15px; background: rgba(13,16,29,.48); backdrop-filter: blur(7px); }
 .social-card { display: grid; width: 44px; height: 44px; place-items: center; padding: 5px; border: 0; border-radius: 4px; background: rgba(30,30,30,.88); box-shadow: 0 2px 5px rgba(50,50,93,.25), 0 1px 3px rgba(0,0,0,.3); color: inherit; cursor: pointer; text-decoration: none; transition: transform .2s, background-color .2s, outline-color .2s; }
+.social-card[hidden] { display: none; }
 .social-card svg { width: 30px; height: 30px; overflow: visible; }
 .social-card:nth-child(4n + 1) { outline: 2px solid #e14444; }
 .social-card:nth-child(4n + 2) { outline: 2px solid #00a6ff; }
