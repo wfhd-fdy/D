@@ -1,37 +1,60 @@
-// التأكد من أن المتصفح قام بتحميل جميع عناصر الصفحة أولاً
-document.addEventListener('DOMContentLoaded', () => {
-    
-    // جلب الزر والعنوان من صفحة HTML عن طريق الـ ID
-    const button = document.getElementById('action-btn');
-    const title = document.getElementById('main-title');
+(() => {
+  const searchForm = document.getElementById("search-form");
+  const searchInput = document.getElementById("search-input");
+  const scene = document.getElementById("drive-scene");
+  const car = document.querySelector(".scene-car");
+  const carState = document.getElementById("car-state");
+  const carSearch = document.getElementById("car-search");
+  const submitButton = searchForm.querySelector(".search-submit");
+  const toast = document.getElementById("toast");
+  let toastTimer;
 
-    // مصفوفة تحتوي على مجموعة ألوان متناسقة ومميزة ليتغير إليها العنوان
-    const colors = ['#27ae60', '#9b59b6', '#e67e22', '#e74c3c', '#16a085', '#2c3e50'];
-    let lastColorIndex = -1;
+  carState.checked = false;
 
-    if (button && title) {
-        // إضافة حدث عند الضغط على الزر
-        button.addEventListener('click', () => {
-            
-            // اختيار لون عشوائي مختلف عن اللون الحالي من المصفوفة
-            let randomIndex;
-            do {
-                randomIndex = Math.floor(Math.random() * colors.length);
-            } while (randomIndex === lastColorIndex);
-            
-            lastColorIndex = randomIndex;
-            const newColor = colors[randomIndex];
+  function showToast(message) {
+    toast.textContent = message;
+    toast.classList.add("is-visible");
+    window.clearTimeout(toastTimer);
+    toastTimer = window.setTimeout(() => toast.classList.remove("is-visible"), 2400);
+  }
 
-            // تطبيق اللون الجديد على العنوان وإضافة حركة تكبير سريعة
-            title.style.color = newColor;
-            title.style.transform = 'scale(1.08)';
-            
-            // إعادة حجم الخط الطبيعي بعد انتهاء الضغطة بـ 200 جزء من الثانية
-            setTimeout(() => {
-                title.style.transform = 'scale(1)';
-            }, 200);
+  car.addEventListener("click", (event) => {
+    if (event.target.closest("#car-search")) return;
+    carState.checked = !carState.checked;
+  });
 
-            console.log("%c تم تغيير اللون بنجاح إلى: " + newColor, `color: ${newColor}; font-weight: bold;`);
-        });
+  carSearch.addEventListener("click", () => {
+    searchInput.focus({ preventScroll: true });
+  });
+
+  searchForm.addEventListener("submit", (event) => {
+    event.preventDefault();
+    const query = searchInput.value.trim();
+
+    if (!query) {
+      searchInput.focus();
+      showToast("اكتب كلمة للبحث أو عنوان موقع أولاً.");
+      return;
     }
-});
+
+    let destination;
+    try {
+      const candidate = /^https?:\/\//i.test(query) ? query : `https://${query}`;
+      const url = new URL(candidate);
+      destination = ["http:", "https:"].includes(url.protocol) && url.hostname.includes(".")
+        ? url.href
+        : null;
+    } catch {
+      destination = null;
+    }
+
+    if (!destination) {
+      destination = `https://search.brave.com/search?q=${encodeURIComponent(query)}`;
+    }
+
+    scene.classList.add("is-driving");
+    searchForm.classList.add("is-searching");
+    submitButton.disabled = true;
+    window.setTimeout(() => window.location.assign(destination), 850);
+  });
+})();

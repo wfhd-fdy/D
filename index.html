@@ -1,24 +1,153 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ar" dir="rtl">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>مشروعي الأول</title>
-    
-    <!-- رابط ملف الـ CSS الخارجي الموجود داخل مجلد css -->
-    <link rel="stylesheet" href="css/style.css">
-</head>
-<body>
-
-    <div class="card">
-        <h1 id="main-title">مرحباً بك في موقعي الجديد!</h1>
-        <p>تم بناء هذه الصفحة وربط ملفات الـ CSS والـ JS بنجاح.</p>
-        
-        <!-- زر التفاعل الخاص بالجافا سكريبت -->
-        <button id="action-btn">اضغط لتغيير الألوان ✨</button>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#111126" />
+    <meta name="description" content="صفحة بداية بسيطة بخلفية طريق متحركة وبحث سريع." />
+    <title>نوفا — ابدأ التصفح</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="script.js" defer></script>
+  </head>
+  <body>
+    <!-- From Uiverse.io by marcelodolza - https://uiverse.io/marcelodolza/dry-cheetah-93
+         MIT License, Copyright (c) marcelodolza (Marcelo Dolza) -->
+    <div class="drive-scene" id="drive-scene">
+      <div class="scene-sky" aria-hidden="true">
+        <span class="scene-star star-one">✦</span>
+        <span class="scene-star star-two">·</span>
+        <span class="scene-star star-three">✧</span>
+        <div class="synthwave-sunset-wrap">
+          <div class="synthwave-sunset"><div class="synthwave-grid-bar"></div></div>
+        </div>
+        <div class="synthwave-fog"></div>
+      </div>
+      <div class="synthwave-ground" aria-hidden="true">
+        <div class="synthwave-sunset-wrap synthwave-ground-sunset">
+          <div class="synthwave-sunset"><div class="synthwave-grid-bar"></div></div>
+        </div>
+        <div class="synthwave-ground-light">
+        <svg class="synthwave-mountain" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1043 156" preserveAspectRatio="none">
+          <defs>
+            <linearGradient id="mountain-back" x1="521" y1="1" x2="521" y2="155" gradientUnits="userSpaceOnUse">
+              <stop stop-color="#22072b" offset=".06"/><stop stop-color="#2f2c9e" offset="1"/>
+            </linearGradient>
+            <linearGradient id="mountain-front" x1="541" y1="70" x2="541" y2="155" gradientUnits="userSpaceOnUse">
+              <stop stop-color="#030b18"/><stop stop-color="#1b779e" offset="1"/>
+            </linearGradient>
+          </defs>
+          <path fill="url(#mountain-back)" stroke="#1762db" d="M0 154 123 110 214 41 290 69 393 20 477 41 516 63 568 58 714 7 800 51 1042 1V155H0Z"/>
+          <path fill="url(#mountain-front)" stroke="#68cde7" d="M41 155 166 130 259 92 336 107 441 80 526 92 566 104 619 101 769 73 819 87 1042 70V155H41Z"/>
+          <path fill="none" stroke="#1762db" stroke-opacity=".72" d="M123 110 0 154h141L214 41l21 113 25-62 76 15 105-27 53 77 17-62 57 9L714 7l39 147 47-103 35 103 207-83"/>
+          <path fill="none" stroke="#68cde7" stroke-opacity=".72" d="M166 130 41 155h143l75-63 21 63 56-48 105-27 29 75 55-63 18 63 76-53 150-28-105 81 133-67 37 67 186-85"/>
+        </svg>
+        </div>
+      </div>
+      <div class="synthwave-car-wrap">
+        <div class="synthwave-car-area">
+          <input id="car-state" type="checkbox" aria-label="فتح أبواب السيارة" />
+          <div class="scene-car synthwave-car-button">
+        <svg class="car-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 366 260" role="presentation" aria-hidden="true">
+          <defs>
+            <linearGradient id="car-paint" x1="183" y1="0" x2="183" y2="160" gradientUnits="userSpaceOnUse"><stop stop-color="#aa4a7b"/><stop offset=".44" stop-color="#36265f"/><stop offset=".77" stop-color="#210d31"/><stop offset="1" stop-color="#520b43"/></linearGradient>
+            <linearGradient id="car-glass" x1="183" y1="4" x2="183" y2="70" gradientUnits="userSpaceOnUse"><stop stop-color="#96dcf3"/><stop offset=".48" stop-color="#506b9f"/><stop offset="1" stop-color="#1b1733"/></linearGradient>
+            <linearGradient id="car-light-cyan" x1="45" y1="88" x2="151" y2="88" gradientUnits="userSpaceOnUse"><stop stop-color="#25e5ea"/><stop offset=".35" stop-color="#fb315f"/><stop offset="1" stop-color="#25e5ea" stop-opacity="0"/></linearGradient>
+            <linearGradient id="car-light-pink" x1="321" y1="88" x2="215" y2="88" gradientUnits="userSpaceOnUse"><stop stop-color="#25e5ea"/><stop offset=".35" stop-color="#fb315f"/><stop offset="1" stop-color="#25e5ea" stop-opacity="0"/></linearGradient>
+            <linearGradient id="car-wheel" x1="0" y1="137" x2="0" y2="164" gradientUnits="userSpaceOnUse"><stop stop-color="#554167"/><stop offset="1" stop-color="#090b14"/></linearGradient>
+            <filter id="car-shadow" x="0" y="0" width="366" height="240" color-interpolation-filters="sRGB" filterUnits="userSpaceOnUse"><feGaussianBlur in="SourceAlpha" stdDeviation="9" result="blur"/><feOffset dy="16"/><feComponentTransfer><feFuncA type="linear" slope=".45"/></feComponentTransfer><feMerge><feMergeNode/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+          </defs>
+          <rect class="synthwave-wheel synthwave-wheel-left" x="30" y="116" width="86" height="48" rx="14" fill="#080a12"/>
+          <rect class="synthwave-wheel synthwave-wheel-right" x="250" y="116" width="86" height="48" rx="14" fill="#080a12"/>
+          <g class="car-door car-door-left" transform="translate(33 -28)">
+            <path d="M146.69 29.81 141.19 32.81 109.19 38.81 79.42 51.54 54.52 101.17C49.71 119.99 77.29 132.46 77.86 155.53L50.03 167.61 23.7 158.88 8.17 126.15 21.16 92.34C39.35 69.54 66.74 41.8 79.67 34.17c16.52-1.86 40.52-3.36 67.02-4.36Z" fill="url(#car-paint)" stroke="#a979b8" stroke-width="2"/>
+            <path d="m58.04 55.85 14.32-1.88c1.59-.21 2.77 1.44 2.05 2.88L57.84 89.9c-.32.65-.97 1.07-1.69 1.1l-27.7 1.28c-1.79.08-2.77-2.04-1.56-3.36l29.94-32.44c.32-.34.75-.57 1.21-.63Z" fill="url(#car-glass)" fill-opacity=".72" stroke="#a9d8ec" stroke-opacity=".55" stroke-width="2"/>
+          </g>
+          <g class="car-door car-door-right" transform="translate(182 -28)">
+            <path d="M4.4 29.81 9.9 32.81 41.9 38.81 71.67 51.54 96.56 101.17c4.82 18.82-22.77 31.29-23.33 54.36l27.83 12.08 26.32-8.73 15.53-32.73-12.99-33.82c-18.2-22.8-45.58-50.54-58.51-58.16C54.9 32.31 30.9 30.81 4.4 29.81Z" fill="url(#car-paint)" stroke="#a979b8" stroke-width="2"/>
+            <path d="m93.05 55.85-14.31-1.88c-1.59-.21-2.77 1.44-2.05 2.88l16.56 33.04c.32.65.97 1.07 1.69 1.1l27.69 1.28c1.79.08 2.78-2.04 1.56-3.36L94.26 56.48a2 2 0 0 0-1.21-.63Z" fill="url(#car-glass)" fill-opacity=".72" stroke="#a9d8ec" stroke-opacity=".55" stroke-width="2"/>
+          </g>
+          <g filter="url(#car-shadow)">
+            <path d="M48.5 117C56 131.5 68.5 146.5 80.5 151.5S142.2 155.5 183 155.5s90.5 1 102.5-4 23.5-20 31-34.5 8.5-12 8.5-19c0-4.1-1-6.5-1.9-7.8-.6-.9-1.3-1.7-1.7-2.8-1.9-5.1-8.1-21.6-10.6-25.5-3-4.4-27.6-29.6-28.5-30.5C281.5 30.5 258.9 5.5 251.5 4 244 2.5 211.5 0 183 0s-61 2.5-68.5 4C107.1 5.5 83.5 30.6 82.7 31.5c-.9.9-25.6 26.1-28.5 30.5-2.6 3.8-8.7 20.3-10.6 25.5-.4 1-1.1 1.9-1.7 2.8-1 1.4-1.9 3.8-1.9 7.8 0 7 1 4.5 8.5 19Z" fill="url(#car-paint)" stroke="#d77db2" stroke-opacity=".48" stroke-width="2"/>
+          </g>
+          <path d="M109 14c1-1 2.2-1.5 3.5-1.5 61-1.9 79-2 140 0 1.3 0 2.5.6 3.4 1.5l8 8c.6.6.1 1.7-.8 1.7-66.8-1.8-94.1-1.7-161 .1-.9 0-1.4-1.1-.8-1.7l7.8-8.1Z" fill="#090a15" fill-opacity=".72"/>
+          <path d="M96 27c.9-1 2.2-1.6 3.6-1.6 61.4-1.9 104.3-2 165.7 0 1.4 0 2.7.6 3.6 1.6l7 7.7c.6.7.1 1.7-.8 1.7-67.5-1.8-117.8-1.7-185.3 0-.9 0-1.4-1-.8-1.7l7-7.7Z" fill="#090a15" fill-opacity=".55"/>
+          <path d="M83 40c.9-1 2.2-1.6 3.6-1.7 62-1.9 128.8-2 190.8 0 1.4 0 2.7.6 3.6 1.6l7 7.7c.6.7.1 1.7-.8 1.7-68.1-1.8-164-1.7-232.1 0-.9 0-1.4-1-.8-1.7l8.7-7.6Z" fill="#090a15" fill-opacity=".4"/>
+          <path d="M70.6 53c.9-1.1 2.3-1.8 3.7-1.8 62.4-1.9 152-2 214.4 0 1.4 0 2.8.7 3.7 1.8l6.2 7.5c.6.7.1 1.7-.8 1.7-68.6-1.8-164-1.7-232.7 0-.9 0-1.4-1-.8-1.7l6.3-7.5Z" fill="#090a15" fill-opacity=".28"/>
+          <path class="synthwave-light synthwave-light-left" d="M64 72c-6.2 8.3-10.4 14.6-14.8 22-3.1 5.3.7 11.9 6.8 12l97 .7V68l-85.6 2c-1.5 0-3 .7-3.9 2Z" fill="url(#car-light-cyan)" stroke="#6debf1" stroke-opacity=".7" stroke-width="2"/>
+          <path class="synthwave-light synthwave-light-right" d="M302 72c6.2 8.3 10.4 14.6 14.8 22 3.1 5.3-.7 11.9-6.8 12l-97 .7V68l85.6 2c1.5 0 3 .7 3.9 2Z" fill="url(#car-light-pink)" stroke="#6debf1" stroke-opacity=".7" stroke-width="2"/>
+          <path d="m82 66 29-34c1-1 2-2 4-2 51-2 103-2 155 0 2 0 3 1 4 2l29 34c-78-2-147-2-221 0Z" fill="url(#car-glass)" stroke="#a9d8ec" stroke-opacity=".72" stroke-width="2"/>
+          <path d="M183 32v34M82 66h202" stroke="#18162d" stroke-width="3"/>
+          <path d="M123 141h18c5 0 9 4 9 9v2c0 5-4 9-9 9h-18c-5 0-9-4-9-9v-2c0-5 4-9 9-9Zm102 0h18c5 0 9 4 9 9v2c0 5-4 9-9 9h-18c-5 0-9-4-9-9v-2c0-5 4-9 9-9Z" fill="url(#car-wheel)" stroke="#17101f" stroke-width="2"/>
+          <circle cx="124.5" cy="151.5" r="7" fill="#11121b" stroke="#9e7aab" stroke-width="2"/><circle cx="139.5" cy="151.5" r="7" fill="#11121b" stroke="#9e7aab" stroke-width="2"/><circle cx="226.5" cy="151.5" r="7" fill="#11121b" stroke="#9e7aab" stroke-width="2"/><circle cx="241.5" cy="151.5" r="7" fill="#11121b" stroke="#9e7aab" stroke-width="2"/>
+          <path d="M183 118v18M112 127h28m84 0h28" stroke="#f4a8d7" stroke-opacity=".62" stroke-width="2"/>
+          <g class="car-spoiler">
+            <path d="m105 8 9-7h138l9 7-5 5H110Z" fill="#171126" stroke="#b48bdb" stroke-width="2"/>
+            <path d="M127 10v9m112-9v9" stroke="#d884cf" stroke-width="3" stroke-linecap="round"/>
+          </g>
+          <path class="tail-light" d="M51 112h43m-39 5h34" />
+          <path class="tail-light" d="M272 112h43m-39 5h34" />
+        </svg>
+        <button class="car-plate" id="car-search" type="button" aria-label="F قلب W">
+          <span>F <b class="plate-heart">♥</b> W</span><span>F <b class="plate-heart">♥</b> W</span>
+        </button>
+        <div class="synthwave-headlights" aria-hidden="true">
+          <span class="synthwave-headlight-left"></span><span class="synthwave-headlight-right"></span>
+        </div>
+          </div>
+        </div>
+      </div>
     </div>
 
-    <!-- رابط ملف الـ JavaScript الخارجي الموجود داخل مجلد js -->
-    <script src="js/script.js"></script>
-</body>
+    <main class="start-page">
+      <section class="search-panel" aria-label="البحث على الإنترنت">
+        <form class="search-form" id="search-form">
+          <span class="search-icon" aria-hidden="true"></span>
+          <input id="search-input" type="search" placeholder="ابحث أو اكتب عنوان موقع..." autocomplete="off" aria-label="ابحث أو اكتب عنوان موقع" />
+          <kbd>Enter ↵</kbd>
+          <button type="submit" class="search-submit">ابحث <span aria-hidden="true">←</span></button>
+        </form>
+      </section>
+      <!-- From Uiverse.io by AngelSg444734 - https://uiverse.io/AngelSg444734/cold-elephant-62
+           MIT License, Copyright (c) Praashoo7 (Prashant), AngelSg444734 (The_Potatop) -->
+      <section class="identity-panel" aria-label="الملف الشخصي والتواصل الاجتماعي">
+        <div class="identity-badge" aria-label="FHD70W">
+          <svg class="identity-lock" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 15 15" aria-hidden="true">
+            <path fill="currentColor" fill-rule="evenodd" clip-rule="evenodd" d="M5 4.63601C5 3.76031 5.24219 3.1054 5.64323 2.67357C6.03934 2.24705 6.64582 1.9783 7.5014 1.9783C8.35745 1.9783 8.96306 2.24652 9.35823 2.67208C9.75838 3.10299 10 3.75708 10 4.63325V5.99999H5V4.63601ZM4 5.99999V4.63601C4 3.58148 4.29339 2.65754 4.91049 1.99307C5.53252 1.32329 6.42675 0.978302 7.5014 0.978302C8.57583 0.978302 9.46952 1.32233 10.091 1.99162C10.7076 2.65557 11 3.57896 11 4.63325V5.99999H12C12.5523 5.99999 13 6.44771 13 6.99999V13C13 13.5523 12.5523 14 12 14H3C2.44772 14 2 13.5523 2 13V6.99999C2 6.44771 2.44772 5.99999 3 5.99999H4ZM3 6.99999H12V13H3V6.99999Z"/>
+          </svg>
+          <span class="identity-divider" aria-hidden="true"></span>
+          <span class="identity-name">FHD70W</span>
+          <svg class="identity-arrow" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 10 10" aria-hidden="true">
+            <path d="M0 5h7M1 1l4 4-4 4" fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.5"/>
+          </svg>
+        </div>
+        <nav class="social-grid" aria-label="روابط تسجيل الدخول إلى منصات التواصل">
+          <a class="social-card social-youtube" href="https://www.youtube.com/" target="_blank" rel="noopener noreferrer" aria-label="فتح YouTube" title="YouTube">
+            <svg viewBox="0 0 100 90" aria-hidden="true"><path d="m120 60c0 33.1371-26.8629 60-60 60s-60-26.8629-60-60 26.8629-60 60-60 60 26.8629 60 60z" fill="#ffffff00"/><path class="social-youtube-mark" d="m25 49c0-7.732 6.268-14 14-14h42c7.732 0 14 6.268 14 14v22c0 7.732-6.268 14-14 14h-42c-7.732 0-14-6.268-14-14z" fill="#fff"/><path class="social-youtube-play" d="m74 59.5-21 10.8253v-21.6506z" fill="black"/></svg>
+          </a>
+          <a class="social-card social-discord" href="https://discord.com/login" target="_blank" rel="noopener noreferrer" aria-label="فتح تسجيل الدخول إلى Discord" title="Discord">
+            <svg viewBox="0 0 60 42" aria-hidden="true"><path class="social-discord-mark" d="M40 12s-4.585-3.588-10-4l-.488.976C34.408 10.174 36.654 11.891 39 14c-4.045-2.065-8.039-4-15-4s-10.955 1.935-15 4c2.346-2.109 5.018-4.015 9.488-5.024L18 8C12.319 8.537 8 12 8 12S2.879 19.425 2 34c5.162 5.953 13 6 13 6l1.639-2.185C13.857 36.848 10.715 35.121 8 32c3.238 2.45 8.125 5 16 5s12.762-2.55 16-5c-2.715 3.121-5.857 4.848-8.639 5.815L33 40s7.838-.047 13-6c-.879-14.575-6-22-6-22ZM17.5 30c-1.933 0-3.5-1.791-3.5-4s1.567-4 3.5-4 3.5 1.791 3.5 4-1.567 4-3.5 4Zm13 0c-1.933 0-3.5-1.791-3.5-4s1.567-4 3.5-4 3.5 1.791 3.5 4-1.567 4-3.5 4Z" fill="azure"/></svg>
+          </a>
+          <a class="social-card social-twitter" href="https://x.com/i/flow/login" target="_blank" rel="noopener noreferrer" aria-label="فتح تسجيل الدخول إلى X" title="X">
+            <svg viewBox="0 0 50 50" aria-hidden="true"><path class="social-twitter-mark" d="M42 12.429a16.4 16.4 0 0 1-4.247 1.162c1.526-.906 2.7-2.351 3.251-4.058a16.7 16.7 0 0 1-4.693 1.776A7.37 7.37 0 0 0 30.926 9c-4.08 0-7.387 3.278-7.387 7.32 0 .572.067 1.129.193 1.67-6.138-.308-11.582-3.226-15.224-7.654-.64 1.082-1 2.349-1 3.686 0 2.541 1.301 4.778 3.285 6.096a9.3 9.3 0 0 1-3.349-.914v.086c0 3.551 2.547 6.508 5.923 7.181a7.5 7.5 0 0 1-1.941.263c-.477 0-.942-.054-1.392-.135.94 2.902 3.667 5.023 6.898 5.086-2.528 1.96-5.712 3.134-9.174 3.134-.598 0-1.183-.034-1.761-.104C9.268 36.786 13.152 38 17.321 38c13.585 0 21.017-11.156 21.017-20.834 0-.317-.01-.633-.025-.945A15 15 0 0 0 42 12.429Z" fill="azure"/></svg>
+          </a>
+          <a class="social-card social-twitch" href="https://www.twitch.tv/login" target="_blank" rel="noopener noreferrer" aria-label="فتح تسجيل الدخول إلى Twitch" title="Twitch">
+            <svg viewBox="0 0 50 50" aria-hidden="true"><path class="social-twitch-mark" d="M5 4h40v29L33 44H23v6l-9-6v-8H5V4Zm5 27h8v9l6-5h8l8-8V9H10v22Zm12-17h5v11h-5V14Zm13 0h-5v11h5V14Z" fill="azure"/></svg>
+          </a>
+          <a class="social-card social-tiktok" href="https://www.tiktok.com/login" target="_blank" rel="noopener noreferrer" aria-label="فتح تسجيل الدخول إلى TikTok" title="TikTok">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path class="social-tiktok-mark" fill="azure" d="M19.6 7.2a6.6 6.6 0 0 1-4.1-1.4v8.1a5.8 5.8 0 1 1-5-5.7v3.2a2.7 2.7 0 1 0 1.9 2.6V2.5h3.1c.2 2 1.7 3.8 4.1 4.1v.6Z"/></svg>
+          </a>
+          <a class="social-card social-snapchat" href="https://accounts.snapchat.com/accounts/v2/login" target="_blank" rel="noopener noreferrer" aria-label="فتح تسجيل الدخول إلى Snapchat" title="Snapchat">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path class="social-snapchat-mark" fill="azure" d="M12 2.2c-3.2 0-5.2 2.5-5.2 5.8 0 .9.1 1.8.2 2.5-.6.3-1.3.4-2 .4-.5 0-.8.3-.8.7 0 .6 1.1 1 2.3 1.2.4.1.6.4.4.8-.6 1.4-1.8 2.6-3.3 3.3-.5.2-.6.7-.1 1 .8.5 1.8.7 2.7.7.4 0 .6.2.8.5.2.5.4 1 .8 1.1.7.2 1.5-.1 2.2.3.6.3 1.2.8 2 .8s1.4-.5 2-.8c.7-.4 1.5-.1 2.2-.3.4-.1.6-.6.8-1.1.2-.3.4-.5.8-.5.9 0 1.9-.2 2.7-.7.5-.3.4-.8-.1-1-1.5-.7-2.7-1.9-3.3-3.3-.2-.4 0-.7.4-.8 1.2-.2 2.3-.6 2.3-1.2 0-.4-.3-.7-.8-.7-.7 0-1.4-.1-2-.4.1-.7.2-1.6.2-2.5 0-3.3-2-5.8-5.2-5.8Z"/></svg>
+          </a>
+          <a class="social-card social-whatsapp" href="https://web.whatsapp.com/" target="_blank" rel="noopener noreferrer" aria-label="فتح WhatsApp Web" title="WhatsApp">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path class="social-whatsapp-mark" fill="azure" d="M12 2a9.8 9.8 0 0 0-8.4 14.8L2.3 22l5.3-1.3A9.8 9.8 0 1 0 12 2Zm0 17.8c-1.4 0-2.8-.4-4-1.1l-.3-.2-3.1.8.8-3-.2-.3A8 8 0 1 1 12 19.8Zm4.4-5.9c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.5.1-.2.2-.6.8-.8.9-.1.2-.3.2-.5.1-.2-.1-1-.4-1.9-1.2-.7-.6-1.2-1.4-1.3-1.6-.1-.2 0-.3.1-.4l.4-.5c.1-.1.2-.3.3-.4.1-.2 0-.3 0-.4s-.5-1.3-.7-1.8c-.2-.5-.4-.4-.5-.4h-.5c-.2 0-.4.1-.6.3-.2.2-.8.8-.8 1.9s.8 2.1.9 2.3c.1.2 1.6 2.5 3.9 3.4.5.2.9.3 1.2.4.5.2 1 .1 1.3.1.4-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2s-.2-.2-.4-.3Z"/></svg>
+          </a>
+          <a class="social-card social-instagram" href="https://www.instagram.com/accounts/login/" target="_blank" rel="noopener noreferrer" aria-label="فتح تسجيل الدخول إلى Instagram" title="Instagram">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><rect class="social-instagram-mark" x="3" y="3" width="18" height="18" rx="5" fill="none" stroke="azure" stroke-width="2"/><circle cx="12" cy="12" r="4" fill="none" stroke="azure" stroke-width="2"/><circle cx="17.5" cy="6.8" r="1.2" fill="azure"/></svg>
+          </a>
+        </nav>
+      </section>
+    </main>
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  </body>
 </html>
