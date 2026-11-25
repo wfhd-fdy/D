@@ -5,31 +5,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>مشروعي الأول</title>
     
-    <!-- (اختياري) إذا أردت مستقبلاً فصل التنسيقات في ملف CSS خارجي اسمه style.css بجانب الصفحة -->
-    <!-- <link rel="stylesheet" href="style.css"> -->
-
-    <style>
-        body {
-            font-family: Tahoma, Arial, sans-serif;
-            background-color: #f4f4f9;
-            text-align: center;
-            padding: 50px;
-        }
-        h1 { color: #2c3e50; }
-        p { color: #555; font-size: 18px; }
-        img { max-width: 100%; height: auto; margin-top: 20px; } /* تحسين لعرض الصور */
-    </style>
+    <!-- رابط ملف الـ CSS الخارجي الموجود داخل مجلد css -->
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
-    <h1>مرحباً بك في موقعي الجديد!</h1>
-    <p>تم بناء هذه الصفحة بنجاح وجاهزة للتطوير.</p>
+    <div class="card">
+        <h1 id="main-title">مرحباً بك في موقعي الجديد!</h1>
+        <p>تم بناء هذه الصفحة وربط ملفات الـ CSS والـ JS بنجاح.</p>
+        
+        <!-- زر التفاعل الخاص بالجافا سكريبت -->
+        <button id="action-btn">اضغط لتغيير الألوان ✨</button>
+    </div>
 
-    <!-- (مثال) لإضافة صورة للموقع باستخدام المسار النسبي -->
-    <!-- إذا كانت الصورة في مجلد اسمه images بجانب هذا الملف، احذف تعليق السطر التالي وعدل اسم الصورة -->
-    <!-- <img src="images/logo.png" alt="شعار الموقع"> -->
-
+    <!-- رابط ملف الـ JavaScript الخارجي الموجود داخل مجلد js -->
+    <script src="js/script.js"></script>
 </body>
 </html>
-<script src="js/script.js"></script>
-
